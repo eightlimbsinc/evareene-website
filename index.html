@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Evarenne — Something beautiful is coming</title>
+  <meta name="description" content="Evarenne. Something beautiful is coming. Our new website is on its way.">
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;1,400&family=Raleway:wght@400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f6f1e9;
+      --logo-bg: #f3ece0;
+      --teal: #1d4d4f;
+      --gold: #a8825a;
+      --rule: #d9a98a;
+      --ink: #1f2a2b;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html, body { height: 100%; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Cormorant Garamond", Georgia, serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 24px 16px;
+      text-align: center;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .logo {
+      width: 116px;
+      height: 118px;
+      background: var(--logo-bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 42px;
+    }
+
+    .logo svg { width: 92px; height: 104px; }
+
+    .brand {
+      font-weight: 400;
+      font-size: clamp(2.25rem, 6vw, 3.1rem);
+      letter-spacing: 0.42em;
+      margin-right: -0.42em; /* balance trailing letter-spacing */
+      color: var(--teal);
+      line-height: 1;
+    }
+
+    .rule {
+      width: 64px;
+      height: 1px;
+      background: var(--rule);
+      border: 0;
+      margin: 46px auto 44px;
+    }
+
+    .tagline {
+      font-style: italic;
+      font-size: clamp(1.4rem, 3.4vw, 1.6rem);
+      color: var(--ink);
+      margin-bottom: 14px;
+    }
+
+    .subline {
+      font-family: "Raleway", "Helvetica Neue", Arial, sans-serif;
+      font-size: 0.9rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    /* Fade-in animation, staggered top to bottom */
+    .fade {
+      opacity: 0;
+      transform: translateY(14px);
+      animation: fadeIn 1.4s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+    }
+    .fade:nth-child(1) { animation-delay: 0.2s; }
+    .fade:nth-child(2) { animation-delay: 0.6s; }
+    .fade:nth-child(3) { animation-delay: 1.0s; }
+    .fade:nth-child(4) { animation-delay: 1.3s; }
+    .fade:nth-child(5) { animation-delay: 1.6s; }
+
+    .rule.fade { transform: scaleX(0); animation-name: drawRule; }
+
+    @keyframes fadeIn {
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes drawRule {
+      to { opacity: 1; transform: scaleX(1); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .fade { animation: none; opacity: 1; transform: none; }
+    }
+
+    @media (max-width: 480px) {
+      .brand { letter-spacing: 0.3em; margin-right: -0.3em; }
+      .subline { font-size: 0.75rem; letter-spacing: 0.16em; }
+      .rule { margin: 36px auto 34px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="logo fade" aria-hidden="true">
+      <svg viewBox="0 0 100 112" fill="none" stroke="#a8825a" stroke-width="2.2" stroke-linejoin="round">
+        <!-- center petal -->
+        <path d="M50 4 C32 22, 32 56, 50 76 C68 56, 68 22, 50 4 Z"/>
+        <!-- left petal -->
+        <path d="M3 40 C26 32, 50 46, 50 76 C26 80, 4 66, 3 40 Z"/>
+        <!-- right petal -->
+        <path d="M97 40 C74 32, 50 46, 50 76 C74 80, 96 66, 97 40 Z"/>
+        <!-- lower petal -->
+        <path d="M50 108 C41 96, 41 78, 50 62 C59 78, 59 96, 50 108 Z"/>
+      </svg>
+    </div>
+    <h1 class="brand fade">EVARENNE</h1>
+    <hr class="rule fade">
+    <p class="tagline fade">Something beautiful is coming.</p>
+    <p class="subline fade">Our new website is on its way.</p>
+  </main>
+</body>
+</html>
